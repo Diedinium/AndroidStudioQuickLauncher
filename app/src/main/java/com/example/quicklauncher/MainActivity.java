@@ -35,11 +35,16 @@ public class MainActivity extends AppCompatActivity {
             //Runs on click
             @Override
             public void onClick(View v) {
+                //Create a string that contains google address
                 String google = "http://www.google.co.uk";
+                //Parse as a URL
                 Uri webaddress = Uri.parse(google);
-
+                //Create an intent called gotoGoogle which uses Action view, and takes webaddress as param
                 Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress);
+                //Checks to make sure that there is an app on the device that can run the intent
+                //Checks by running a checkActivity to the package manager, returns true if app is available
                 if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                    //Starts the activity, taking gotoGoogle intent.
                     startActivity(gotoGoogle);
                 }
             }
